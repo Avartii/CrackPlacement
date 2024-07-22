@@ -1,0 +1,17 @@
+class Solution {
+    int sum = 0;
+    private void preOrder(TreeNode root, int low, int high){
+        if(root != null){
+            if(root.val>=low && root.val<=high){
+                sum += root.val;
+            }
+            preOrder(root.left, low, high);
+            preOrder(root.right, low, high);
+        }
+    }
+    public int rangeSumBST(TreeNode root, int low, int high) {
+        
+        preOrder(root, low, high);
+        return sum;
+    }
+    }
